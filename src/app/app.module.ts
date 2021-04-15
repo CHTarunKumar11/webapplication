@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ForgotpwdComponent } from './forgotpwd/forgotpwd.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,16 @@ import { ForgotpwdComponent } from './forgotpwd/forgotpwd.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    ToastrModule.forRoot(
+      {
+        timeOut : 2000,
+        progressBar : true,
+        progressAnimation : 'increasing',
+        closeButton : true,
+        positionClass : "toast-top-center",
+        preventDuplicates : true
+      }
+    ),
   
   ],
   providers: [],
