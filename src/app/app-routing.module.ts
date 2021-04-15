@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { ForgotpwdComponent } from './forgotpwd/forgotpwd.component';
 import { FormsComponent } from './forms/forms.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { RemaindersComponent } from './remainders/remainders.component';
+import { RouteGuard } from './route.guard';
 
 const routes: Routes = [
   {path:"",redirectTo:"/forms/login",pathMatch:"full"},
@@ -13,6 +16,10 @@ const routes: Routes = [
     {path:"register",component:RegisterComponent},
     {path:"forgotpwd",component:ForgotpwdComponent},
   ]},
+
+  {path:"dashboard",component:DashboardComponent,canActivate:[RouteGuard]},
+  {path:"remainders",component:RemaindersComponent,canActivate:[RouteGuard]},
+
 
 ];
 
