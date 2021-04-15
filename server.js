@@ -9,14 +9,6 @@ app.use(exp.static(path.join(__dirname,"./dist/webapp")));
 
 app.use(exp.json());
 
-const userApiObj = require("./API's/userApi");
-const activityApiObj = require("./API's/activityApi");
-
-app.use("/user",userApiObj);
-app.use("/activity",activityApiObj);
-
-
-
 const dburl=process.env.dburl
 
 mongoose.connect(dburl,{useNewUrlParser:true,useUnifiedTopology:true});
@@ -24,6 +16,13 @@ const db = mongoose.connection;
 
 db.on("error",()=>console.log("err in db connection"));
 db.once("open",()=>console.log("connected to db"));
+
+const userApiObj = require("./API's/userApi");
+const activityApiObj = require("./API's/activityApi");
+
+app.use("/user",userApiObj);
+app.use("/activity",activityApiObj);
+
 
 app.use((req,res,next)=>{
     res.send({message:req.url+" is invalid"});
