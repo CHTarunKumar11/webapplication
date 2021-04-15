@@ -12,23 +12,6 @@ app.use(exp.json());
 
 const dburl=process.env.dburl
 
-mongodb.connect(dburl,{useNewUrlParser:true,useUnifiedTopology:true})
-.then(
-    client => {
-        dbObj = client.db("MyAppDatabase");
-        userCollectionObj = dbObj.collection("usercollection");
-        productCollectionObj = dbObj.collection("productcollection");
-        cartCollectionObj = dbObj.collection("cartcollection");
-
-        app.set("userCollectionObj",userCollectionObj);
-        app.set("productCollectionObj",productCollectionObj);
-        app.set("cartCollectionObj",cartCollectionObj);
-        
-        console.log("connected to database");
-    }
-)
-.catch(error => console.log("error in db connection",error));
-
 app.use((req,res,next)=>{
     res.send({message:req.url+" is invalid"});
 })
