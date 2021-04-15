@@ -5,7 +5,7 @@ const path = require("path");
 
 require("dotenv").config();
 
-app.use(exp.static(path.join(__dirname,"./dist/ecommerceapp")));
+app.use(exp.static(path.join(__dirname,"./dist/webapp")));
 
 app.use(exp.json());
 
