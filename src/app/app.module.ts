@@ -13,6 +13,9 @@ import { ToastrModule } from 'ngx-toastr';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RemaindersComponent } from './remainders/remainders.component';
 import { AuthorizationService } from './authorization.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SearchPipe } from './search.pipe';
+import { MomentModule } from 'ngx-moment';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,8 @@ import { AuthorizationService } from './authorization.service';
     RegisterComponent,
     ForgotpwdComponent,
     DashboardComponent,
-    RemaindersComponent
+    RemaindersComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
@@ -31,6 +35,7 @@ import { AuthorizationService } from './authorization.service';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     ToastrModule.forRoot(
       {
         timeOut : 2000,
@@ -41,7 +46,11 @@ import { AuthorizationService } from './authorization.service';
         preventDuplicates : true
       }
     ),
-  
+    MomentModule.forRoot({
+      relativeTimeThresholdOptions: {
+        'm': 59
+      }
+    })
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
