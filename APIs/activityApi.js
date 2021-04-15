@@ -5,7 +5,7 @@ const activityApiObj = exp.Router();
 
 const Activity = require("../Models/Activity");
 
-const verifyToken = require("./middlewares/verifyToken");
+const verifyToken = require("../APIs/middlewares/Verifytoken");
 
 activityApiObj.post("/addactivity",verifyToken,asynchandler(async(req,res,next)=>{
 

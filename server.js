@@ -17,10 +17,11 @@ const db = mongoose.connection;
 db.on("error",()=>console.log("err in db connection"));
 db.once("open",()=>console.log("connected to db"));
 
-const userApiObj = require("./API's/userApi");
-const activityApiObj = require("./API's/activityApi");
+const userApiObj = require("./APIs/userApi");
+const activityApiObj = require("./APIs/activityApi");
 
-
+app.use("/user",userApiObj);
+app.use("/activity",activityApiObj);
 
 app.use((req,res,next)=>{
     res.send({message:req.url+" is invalid"});
