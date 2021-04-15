@@ -1,6 +1,6 @@
 const exp = require("express");
 const app = exp();
-const mongodb = require("mongodb").MongoClient;
+const mongoose = require("mongoose");
 const path = require("path");
 
 require("dotenv").config();
