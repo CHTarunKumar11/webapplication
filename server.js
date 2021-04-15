@@ -12,6 +12,12 @@ app.use(exp.json());
 
 const dburl=process.env.dburl
 
+mongoose.connect(dburl,{useNewUrlParser:true,useUnifiedTopology:true});
+const db = mongoose.connection;
+
+db.on("error",()=>console.log("err in db connection"));
+db.once("open",()=>console.log("connected to db"));
+
 app.use((req,res,next)=>{
     res.send({message:req.url+" is invalid"});
 })
