@@ -9,6 +9,13 @@ app.use(exp.static(path.join(__dirname,"./dist/webapp")));
 
 app.use(exp.json());
 
+const userApiObj = require("./API's/userApi");
+const activityApiObj = require("./API's/activityApi");
+
+app.use("/user",userApiObj);
+app.use("/activity",activityApiObj);
+
+
 
 const dburl=process.env.dburl
 
