@@ -20,8 +20,6 @@ db.once("open",()=>console.log("connected to db"));
 const userApiObj = require("./API's/userApi");
 const activityApiObj = require("./API's/activityApi");
 
-app.use("/user",userApiObj);
-app.use("/activity",activityApiObj);
 
 
 app.use((req,res,next)=>{
