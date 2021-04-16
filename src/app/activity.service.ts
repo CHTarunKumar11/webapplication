@@ -20,7 +20,6 @@ export class ActivityService {
         {
           this.activities = res["activities"];
           this.remainders.next(this.activities);
-          console.log("set",this.activities)
         }
       }
     )

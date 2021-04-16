@@ -117,6 +117,8 @@ export class RemaindersComponent implements OnInit {
         else{
           this.toastsuccess("Dashboard Page",res["message"]);
           this.getActivities();
+          location.reload();
+          this.as.setRemainders(this.username);
         }
       }
     )
@@ -152,6 +154,7 @@ export class RemaindersComponent implements OnInit {
         }
         else{
           this.toastsuccess("Dashboard Page",res["message"]);
+          location.reload();
           this.as.setRemainders(this.username);
           this.getActivities();
         }

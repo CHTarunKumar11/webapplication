@@ -140,8 +140,6 @@ export class DashboardComponent implements OnInit {
 
   delete(id)
   {
-    console.log(id);
-    
     this.as.deleteActivity(id).subscribe(
       res=>{
         if(res["message"] == ("Session expired. Please login again" || "Unauthorized access. Login to continue"))
@@ -153,6 +151,8 @@ export class DashboardComponent implements OnInit {
           this.toastsuccess("Dashboard Page",res["message"]);
           this.getActivities();
           this.getPinnedActivities();
+          location.reload();
+          this.as.setRemainders(this.username);
         }
       }
     )
@@ -237,7 +237,7 @@ export class DashboardComponent implements OnInit {
         else{
           this.toastsuccess("Dashboard Page",res["message"]);
           this.getActivities();
-          this.getPinnedActivities();
+          this.getPinnedActivities();location.reload();
           this.as.setRemainders(this.username);
         }
       }

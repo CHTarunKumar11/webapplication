@@ -39,8 +39,6 @@ export class AppComponent implements OnInit{
     this.as.getRemainderActivities().subscribe(
       res=> {
         this.activities = res;
-        console.log(this.activities);
-        
         this.callRemainder();
       }
     );
