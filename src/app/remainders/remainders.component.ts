@@ -70,6 +70,7 @@ export class RemaindersComponent implements OnInit {
           this.addactivityObj.title = "";
           this.addactivityObj.activity = "";
           this.addactivityObj.time = "";
+          this.as.setRemainders(this.username);
           this.getActivities();
         }
       },
@@ -151,6 +152,7 @@ export class RemaindersComponent implements OnInit {
         }
         else{
           this.toastsuccess("Dashboard Page",res["message"]);
+          this.as.setRemainders(this.username);
           this.getActivities();
         }
       }
@@ -183,6 +185,7 @@ export class RemaindersComponent implements OnInit {
       
       this.date = new Date(this.editactivityObj.time);
       this.save();
+      this.as.setRemainders(this.username);
     }
     else
     {
